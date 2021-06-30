@@ -585,7 +585,7 @@ resource "aws_organizations_policy" "ScpPolicy16" {
         "iam:UpdateRole",
         "iam:UpdateRoleDescription"
       ],
-      "Resource": *,
+      "Resource": "*",
       "Effect": "Deny",
       "Condition": {
         "StringNotLike": {
