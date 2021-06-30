@@ -11,5 +11,5 @@ account_email_ids = {
   "sme-prod" = "sme_prod@yahoo.com",
   "quarantine-dev" = "tech_techno1@yahoo.com",
   "quarantine-uat" = "madhu1sept@gmail.com",
-  "quarantine-prod" = "honey17june@gmail.com",
+  "quarantine-prod" = "npchhikara@gmail.com",
 }

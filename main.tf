@@ -8,7 +8,7 @@ locals {
   }
 }
 
-module "organization" {
+module organization {
   source = "./src/organization"
   enable = true
   functional_ous = var.functional_ous
@@ -16,6 +16,15 @@ module "organization" {
   environment_ous = var.environment_ous
   email_ids = local.email_ids
 }
+
+module scps {
+  source = "./src/scp"
+  accounts = module.organization.accounts
+  # TODO - add enable variable, fine for now
+}
+
+# while attaching SCPs, to accounts, we want to keep dev account relatively open for experimentation
+
 
 output root {
   value = local.root_parent_id
