@@ -606,7 +606,7 @@ resource "aws_organizations_policy" "ScpPolicy16" {
 POLICY
 
 }
-
+/*
 resource aws_organizations_policy ScpPolicy17 {
   name = "scp_protect_abac_tags"
   description = "This SCP restricts tags modification on resources and iam principals to implement abac based permissions"
@@ -759,3 +759,5 @@ resource aws_organizations_policy ScpPolicy17 {
   }
 POLICY
 }
+
+*/
