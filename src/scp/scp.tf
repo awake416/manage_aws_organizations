@@ -626,7 +626,7 @@ resource aws_organizations_policy ScpPolicy17 {
 			],
 			"Condition": {
 				"StringNotEquals": {
-					"ec2:ResourceTag/access-control": "${aws:PrincipalTag/access-control}",
+					"ec2:ResourceTag/access-control": "$${aws:PrincipalTag/access-control}",
                     "aws:PrincipalArn": [
                       "arn:aws:iam::${local.account_id}:infra/infra_admin",
                       "arn:aws:iam::${local.account_id}:infra/org_master_role",
@@ -652,7 +652,7 @@ resource aws_organizations_policy ScpPolicy17 {
 			],
 			"Condition": {
 				"StringNotEquals": {
-					"iam:ResourceTag/access-control": "${aws:PrincipalTag/access-control}",
+					"iam:ResourceTag/access-control": "$${aws:PrincipalTag/access-control}",
                     "aws:PrincipalArn": [
                       "arn:aws:iam::${local.account_id}:infra/infra_admin",
                       "arn:aws:iam::${local.account_id}:infra/org_master_role",
@@ -678,7 +678,7 @@ resource aws_organizations_policy ScpPolicy17 {
 			],
 			"Condition": {
 				"StringNotEquals": {
-					"aws:ResourceTag/access-control": "${aws:PrincipalTag/access-control}",
+					"aws:ResourceTag/access-control": "$${aws:PrincipalTag/access-control}",
                     "aws:PrincipalArn": [
                       "arn:aws:iam::${local.account_id}:infra/infra_admin",
                       "arn:aws:iam::${local.account_id}:infra/org_master_role",
@@ -710,7 +710,7 @@ resource aws_organizations_policy ScpPolicy17 {
 			],
 			"Condition": {
 				"StringNotEquals": {
-					"aws:RequestTag/access-control": "${aws:PrincipalTag/access-control}",
+					"aws:RequestTag/access-control": "$${aws:PrincipalTag/access-control}",
                     "aws:PrincipalArn": [
                       "arn:aws:iam::${local.account_id}:infra/infra_admin",
                       "arn:aws:iam::${local.account_id}:infra/org_master_role",
