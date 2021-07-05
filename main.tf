@@ -17,6 +17,8 @@ module organization {
   email_ids = local.email_ids
 }
 
+# Policy types Supported by tf - AISERVICES_OPT_OUT_POLICY|BACKUP_POLICY|SERVICE_CONTROL_POLICY (DEFAULT)|TAG_POLICY
+# We added support for tags and scp for now
 module scps {
   source = "./src/scp"
   accounts = module.organization.accounts
@@ -25,6 +27,10 @@ module scps {
 
 # while attaching SCPs, to accounts, we want to keep dev account relatively open for experimentation
 
+module tagpolicies {
+  source = "./src/tagpolicies"
+  root_parent_id = local.root_parent_id
+}
 
 output root {
   value = local.root_parent_id
