@@ -47,19 +47,3 @@ output environment_ous {
 output accounts {
   value = module.organization.accounts
 }
-
-output dev_accounts {
-  value = module.scps.dev_accounts
-}
-
-output dev_policy {
-  value = module.scps.dev_polcies
-}
-
-output prod_accounts {
-  value = module.scps.prod_accounts
-}
-
-output prod_policy {
-  value = module.scps.prod_polcies
-}
