@@ -6,8 +6,7 @@ locals {
 
   common_policies = [
     aws_organizations_policy.ScpPolicy2.id,
-    aws_organizations_policy.ScpPolicy3.id,
-    aws_organizations_policy.ScpPolicy17.id
+    aws_organizations_policy.ScpPolicy3.id
   ]
   dev_policies = {
     for pair in setproduct(local.common_policies, local.dev_accounts): "${pair[0]}-${pair[1]}" => {
