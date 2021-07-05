@@ -1,3 +1,7 @@
+data aws_caller_identity current {}
+locals {
+  account_id = data.aws_caller_identity.current.account_id
+}
 resource "aws_organizations_policy" "ScpPolicy1" {
   name = "scp_whitelist_region"
   description = "This SCP denies access to any operations outside of the specified AWS Region, except for actions in the listed services (These are global services that cannot be whitelisted based on region). "
@@ -107,8 +111,8 @@ resource "aws_organizations_policy" "ScpPolicy3" {
       "Condition": {
         "StringNotLike": {
           "aws:PrincipalArn": [
-            "arn:aws:iam::*:infra/infra_admin",
-            "arn:aws:iam::*:infra/org_master_role"
+            "arn:aws:iam::${local.account_id}:infra/infra_admin",
+            "arn:aws:iam::${local.account_id}:infra/org_master_role"
           ]
         }
       }
@@ -138,8 +142,8 @@ resource "aws_organizations_policy" "ScpPolicy4" {
       "Condition": {
         "StringNotLike": {
           "aws:PrincipalArn": [
-            "arn:aws:iam::*:infra/infra_admin",
-            "arn:aws:iam::*:infra/org_master_role"
+            "arn:aws:iam::${local.account_id}:infra/infra_admin",
+            "arn:aws:iam::${local.account_id}:infra/org_master_role"
           ]
         }
       }
@@ -174,8 +178,8 @@ resource "aws_organizations_policy" "ScpPolicy5" {
       "Condition": {
         "StringNotLike": {
           "aws:PrincipalArn": [
-            "arn:aws:iam::*:infra/infra_admin",
-            "arn:aws:iam::*:infra/org_master_role"
+            "arn:aws:iam::${local.account_id}:infra/infra_admin",
+            "arn:aws:iam::${local.account_id}:infra/org_master_role"
           ]
         }
       }
@@ -206,8 +210,8 @@ resource "aws_organizations_policy" "ScpPolicy6" {
       "Condition": {
         "StringNotLike": {
           "aws:PrincipalArn": [
-            "arn:aws:iam::*:infra/infra_admin",
-            "arn:aws:iam::*:infra/org_master_role"
+            "arn:aws:iam::${local.account_id}:infra/infra_admin",
+            "arn:aws:iam::${local.account_id}:infra/org_master_role"
           ]
         }
       }
@@ -234,8 +238,8 @@ resource "aws_organizations_policy" "ScpPolicy7" {
       "Condition": {
         "StringNotLike": {
           "aws:PrincipalArn": [
-            "arn:aws:iam::*:infra/infra_admin",
-            "arn:aws:iam::*:infra/org_master_role"
+            "arn:aws:iam::${local.account_id}:infra/infra_admin",
+            "arn:aws:iam::${local.account_id}:infra/org_master_role"
           ]
         }
       }
@@ -266,8 +270,8 @@ resource "aws_organizations_policy" "ScpPolicy8" {
       "Condition": {
         "StringNotLike": {
           "aws:PrincipalArn": [
-            "arn:aws:iam::*:infra/infra_admin",
-            "arn:aws:iam::*:infra/org_master_role"
+            "arn:aws:iam::${local.account_id}:infra/infra_admin",
+            "arn:aws:iam::${local.account_id}:infra/org_master_role"
           ]
         }
       }
@@ -282,8 +286,8 @@ resource "aws_organizations_policy" "ScpPolicy8" {
       "Condition": {
         "StringNotLike": {
           "aws:PrincipalArn": [
-            "arn:aws:iam::*:infra/infra_admin",
-            "arn:aws:iam::*:infra/org_master_role"
+            "arn:aws:iam::${local.account_id}:infra/infra_admin",
+            "arn:aws:iam::${local.account_id}:infra/org_master_role"
           ]
         }
       }
@@ -355,8 +359,8 @@ resource "aws_organizations_policy" "ScpPolicy11" {
       "Condition": {
         "StringNotLike": {
           "aws:PrincipalArn": [
-            "arn:aws:iam::*:infra/infra_admin",
-            "arn:aws:iam::*:infra/org_master_role"
+            "arn:aws:iam::${local.account_id}:infra/infra_admin",
+            "arn:aws:iam::${local.account_id}:infra/org_master_role"
           ]
         }
       }
@@ -383,9 +387,9 @@ resource "aws_organizations_policy" "ScpPolicy12" {
       "Condition": {
         "StringNotLike": {
           "aws:PrincipalArn": [
-            "arn:aws:iam::*:infra/infra_admin",
-            "arn:aws:iam::*:infra/org_master_role",
-            "arn:aws:iam::*:app/app_admin"
+            "arn:aws:iam::${local.account_id}:infra/infra_admin",
+            "arn:aws:iam::${local.account_id}:infra/org_master_role",
+            "arn:aws:iam::${local.account_id}:app/app_admin"
           ]
         }
       }
@@ -451,9 +455,9 @@ resource "aws_organizations_policy" "ScpPolicy14" {
       "Condition": {
         "StringNotLike": {
           "aws:PrincipalArn": [
-            "arn:aws:iam::*:infra/infra_admin",
-            "arn:aws:iam::*:infra/org_master_role",
-            "arn:aws:iam::*:app/app_admin"
+            "arn:aws:iam::${local.account_id}:infra/infra_admin",
+            "arn:aws:iam::${local.account_id}:infra/org_master_role",
+            "arn:aws:iam::${local.account_id}:app/app_admin"
           ]
         }
       }
@@ -509,8 +513,8 @@ resource "aws_organizations_policy" "ScpPolicy15" {
       "Condition": {
         "StringNotLike": {
           "aws:PrincipalArn": [
-            "arn:aws:iam::*:infra/infra_admin",
-            "arn:aws:iam::*:infra/org_master_role"
+            "arn:aws:iam::${local.account_id}:infra/infra_admin",
+            "arn:aws:iam::${local.account_id}:infra/org_master_role"
           ]
         }
       }
@@ -590,9 +594,9 @@ resource "aws_organizations_policy" "ScpPolicy16" {
       "Condition": {
         "StringNotLike": {
           "aws:PrincipalArn": [
-            "arn:aws:iam::*:infra/infra_admin",
-            "arn:aws:iam::*:infra/org_master_role",
-            "arn:aws:iam::*:app/app_admin"
+            "arn:aws:iam::${local.account_id}:infra/infra_admin",
+            "arn:aws:iam::${local.account_id}:infra/org_master_role",
+            "arn:aws:iam::${local.account_id}:app/app_admin"
           ]
         }
       }
@@ -601,4 +605,157 @@ resource "aws_organizations_policy" "ScpPolicy16" {
 }
 POLICY
 
+}
+
+resource aws_organizations_policy ScpPolicy17 {
+  name = "scp_protect_abac_tags"
+  description = "This SCP restricts tags modification on resources and iam principals to implement abac based permissions"
+  content = <<POLICY
+  {
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "DenyModifyTagsIfResAuthzTagAndPrinTagNotMatchedEc2",
+			"Effect": "Deny",
+			"Action": [
+				"ec2:CreateTags",
+				"ec2:DeleteTags"
+			],
+			"Resource": [
+				"*"
+			],
+			"Condition": {
+				"StringNotEquals": {
+					"ec2:ResourceTag/access-control": "${aws:PrincipalTag/access-control}",
+                    "aws:PrincipalArn": [
+                      "arn:aws:iam::${local.account_id}:infra/infra_admin",
+                      "arn:aws:iam::${local.account_id}:infra/org_master_role",
+                      "arn:aws:iam::${local.account_id}:app/app_admin"
+                    ]
+				},
+				"Null": {
+					"ec2:ResourceTag/access-control": false
+				}
+			}
+		},
+		{
+			"Sid": "DenyModifyTagsIfResAuthzTagAndPrinTagNotMatchedIam",
+			"Effect": "Deny",
+			"Action": [
+				"iam:TagRole",
+				"iam:TagUser",
+				"iam:UntagRole",
+				"iam:UntagUser"
+			],
+			"Resource": [
+				"*"
+			],
+			"Condition": {
+				"StringNotEquals": {
+					"iam:ResourceTag/access-control": "${aws:PrincipalTag/access-control}",
+                    "aws:PrincipalArn": [
+                      "arn:aws:iam::${local.account_id}:infra/infra_admin",
+                      "arn:aws:iam::${local.account_id}:infra/org_master_role",
+                      "arn:aws:iam::${local.account_id}:app/app_admin"
+                    ]
+				},
+				"Null": {
+					"iam:ResourceTag/access-control": false
+				}
+			}
+		},
+		{
+			"Sid": "DenyModifyTagsIfResAuthzTagAndPrinTagNotMatched",
+			"Effect": "Deny",
+			"Action": [
+				"elasticfilesystem:TagResource",
+				"elasticfilesystem:UntagResource",
+				"rds:AddTagsToResource",
+				"rds:RemoveTagsFromResource"
+			],
+			"Resource": [
+				"*"
+			],
+			"Condition": {
+				"StringNotEquals": {
+					"aws:ResourceTag/access-control": "${aws:PrincipalTag/access-control}",
+                    "aws:PrincipalArn": [
+                      "arn:aws:iam::${local.account_id}:infra/infra_admin",
+                      "arn:aws:iam::${local.account_id}:infra/org_master_role",
+                      "arn:aws:iam::${local.account_id}:app/app_admin"
+                    ]
+				},
+				"Null": {
+					"aws:ResourceTag/access-control": false
+				}
+			}
+		},
+		{
+			"Sid": "DenyModifyResAuthzTagIfPrinTagNotMatched",
+			"Effect": "Deny",
+			"Action": [
+				"elasticfilesystem:TagResource",
+				"elasticfilesystem:UntagResource",
+				"ec2:CreateTags",
+				"ec2:DeleteTags",
+				"iam:TagRole",
+				"iam:TagUser",
+				"iam:UntagRole",
+				"iam:UntagUser",
+				"rds:AddTagsToResource",
+				"rds:RemoveTagsFromResource"
+			],
+			"Resource": [
+				"*"
+			],
+			"Condition": {
+				"StringNotEquals": {
+					"aws:RequestTag/access-control": "${aws:PrincipalTag/access-control}",
+                    "aws:PrincipalArn": [
+                      "arn:aws:iam::${local.account_id}:infra/infra_admin",
+                      "arn:aws:iam::${local.account_id}:infra/org_master_role",
+                      "arn:aws:iam::${local.account_id}:app/app_admin"
+                    ]
+				},
+				"ForAnyValue:StringEquals": {
+					"aws:TagKeys": [
+						"access-control"
+					]
+				}
+			}
+		},
+		{
+			"Sid": "DenyModifyTagsIfPrinTagNotExists",
+			"Effect": "Deny",
+			"Action": [
+				"elasticfilesystem:TagResource",
+				"elasticfilesystem:UntagResource",
+				"ec2:CreateTags",
+				"ec2:DeleteTags",
+				"iam:TagRole",
+				"iam:TagUser",
+				"iam:UntagRole",
+				"iam:UntagUser",
+				"rds:AddTagsToResource",
+				"rds:RemoveTagsFromResource"
+			],
+			"Resource": [
+				"*"
+			],
+			"Condition": {
+				"StringNotEquals": {
+                    "aws:PrincipalArn": [
+                      "arn:aws:iam::${local.account_id}:infra/infra_admin",
+                      "arn:aws:iam::${local.account_id}:infra/org_master_role",
+                      "arn:aws:iam::${local.account_id}:app/app_admin"
+                    ]
+				},
+				"Null": {
+					"aws:PrincipalTag/access-control": true
+				}
+			}
+		}
+	]
+  }
+POLICY
 }
