@@ -6,3 +6,7 @@ We want to keep the environments variables in the form of tfvars in the same rep
 The approach we have taken here is to keep all the environment specific variables in same repo per environment like /env/dev/variables.tfvars.
 
 Then use a module which wraps tfe details to provision the required workspace. 
+
+
+## TODO -
+* add support for abac based on tags.
